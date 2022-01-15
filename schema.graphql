@@ -1,0 +1,31 @@
+type User {
+  name: String!
+  email: String!
+  password: String!
+  posts: [Post]
+}
+
+type Post {
+  id: ID!
+  title: String!
+  tags: [String]
+  author: User!
+}
+
+type Query {
+  findUserByEmail(email: String): User
+  listPosts: [Post] @resolver(name: "ListPosts" paginated: true)
+}
+
+type Mutation {
+  registerUser(name: String!, email: String!, password: String!): User @resolver(name: "RegisterUser")
+  login(email: String!, password: String!): Token @resolver(name: "LoginUser")
+}
+
+# Embeded type for returned token response
+type Token @embedded {
+  ttl: Time!
+  secret: String!
+  email: String!
+  userId: ID!
+}
