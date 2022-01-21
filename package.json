@@ -1,7 +1,15 @@
 {
-  "name": "ticktock",
+  "name": "ticktock-clone",
   "version": "0.1.0",
+  "description": "A clone of the ticktock webapp",
+  "author": "Piyush Sonar <hi@piyushsonar.in>",
+  "main": "pages/index.js",
   "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ipiyushsonar/ticktok-clone.git"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
